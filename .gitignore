@@ -1,3 +1,3 @@
 benchmarkbot/
 cachedData/
-
+**/__pycache__/
