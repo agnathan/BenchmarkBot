@@ -32,7 +32,7 @@ The results are aggregated and written to an Excel file, named interview-questio
 
 ### Installation
 
-1. Clone the repository. Please note, I've included the OpenVINO model files in the repository, so users don't need to go download them. However, they are large files that take a while to download.
+1. Clone the repository. **_ Please note, I've included the OpenVINO model files in the repository, so users don't need to go download them. However, they are large files that take a while to download. Please have patience. _**
 
 ```bash
 git clone https://github.com/agnathan/BenchmarkBot.git
@@ -59,8 +59,33 @@ pip install -r requirements.txt
 mv cachedData cachedDataOrig
 ```
 
+5. Install OpenVINO models. This is optional because the OpenVINO models are over 5GB and zipped they are over 2.2GB. If you don't download them, BenchmarkBot defaults to EasyOCR.
+
+[https://drive.google.com/file/d/1A-x9Gfe4Ljw3fJYmAYmoMLrGkFfceteI/view?usp=sharing](Download the OpenVINO Models)
+
+Unzip the openvino-models.zip in the top level directory of BenchmarkBot
+
 5. Run BenchmarkBot
 
 ```
 python ./main.py   # Run from the top level directory
 ```
+
+6. Open interview-questions.xlsx to view the results
+
+## Training spaCy Pipelines
+
+Training the Spacy Named Entity Recogizer requires the following steps
+
+1. Annotate the data using https://tecoholic.github.io/ner-annotator/
+2. Merge the new annotated data with annotations.json
+3. Go to the training directory and run
+
+```
+   python .\train-create-ner-training-and-validation-data.py
+   python -m spacy train .\config.cfg --output ./models --paths.train .\train_data.spacy --paths.dev .\test_data.spacy
+```
+
+4. Test the results
+   python .\text-ner-inference.py
+5. Note scikit-learn is used to divide the labeled data into training data and validation data
