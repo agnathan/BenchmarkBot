@@ -1,3 +1,4 @@
+import os
 import glob
 from cm import ConfigurationManager
 
@@ -29,7 +30,7 @@ print(
       """
 )
 # Read in the BenchmarkBot configuration file
-cm = ConfigurationManager("./bot.yaml")
+cm = ConfigurationManager("bot.yaml")
 
 # Define the Benchmarkbot AI Pipelines
 youtubePipeline = Pipeline()
@@ -46,9 +47,9 @@ for config in articleImageConfigs:
     imgFiles = glob.glob(f"{cacheDir}\\*png")
 
     for imgfile in imgFiles:
-        nlpfile = OCRTextRecognitionAction().run(config, imgfile)
-        NLPAction().run(config, nlpfile)
-    ExcelWriteAction().run(config, cacheDir + "\\-nlp.json")
+        ocrfile = OCRTextRecognitionAction().run(config, imgfile)
+        NLPAction().run(config, ocrfile)
+    ExcelWriteAction().run(config, os.path.join(cacheDir, "nlp.json"))
 
 # Process configs that use ArticleTables
 atConfigs = cm.buildArticleTablesConfigs()

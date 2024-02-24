@@ -174,9 +174,6 @@ class ExcelWriteAction(Action):
         #     )
         #     return cached_file_path
         data = read_nlp_json_files(cached_dirname_path)
-        # print("222222222222222222222222222222222222222222222222")
-        # print(data)
-        # print("333333333333333333333333333333333333333333333333")
 
         points = []
         # Get all of the data points
