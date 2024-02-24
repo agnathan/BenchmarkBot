@@ -46,7 +46,7 @@ class ArticleTablesDownloadAction(Action):
             # # Check if the video is already cached
             if os.path.exists(cached_file_path):
                 print(f"Article Text already cached at {cached_file_path}")
-                return cached_file_path
+                return cached_dir_path
 
             # Remove unnecessary tags and whitespace
             for tag in table.find_all(["script", "style"]):

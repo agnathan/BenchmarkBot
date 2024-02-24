@@ -44,7 +44,8 @@ youtubePipeline.add_action(ExcelWriteAction())
 articleImageConfigs = cm.buildArticleImagesConfigs()
 for config in articleImageConfigs:
     cacheDir = ArticleImagesDownloadAction().run(config)
-    imgFiles = glob.glob(f"{cacheDir}\\*png")
+    imgFilesPath = os.path.join(cacheDir, "*.png")
+    imgFiles = glob.glob(imgFilesPath)
 
     for imgfile in imgFiles:
         ocrfile = OCRTextRecognitionAction().run(config, imgfile)
@@ -55,12 +56,14 @@ for config in articleImageConfigs:
 atConfigs = cm.buildArticleTablesConfigs()
 for config in atConfigs:
     cacheDir = ArticleTablesDownloadAction().run(config)
-    tableFiles = glob.glob(f"{cacheDir}\\*ArticleTable.json")
+    articleTablePath = os.path.join(cacheDir, "*ArticleTable.json")
+    tableFiles = glob.glob(articleTablePath)
 
     for tableFile in tableFiles:
         NLPAction().run(config, tableFile)
 
-    ExcelWriteAction().run(config, cacheDir + "\\ArticleTable.json")
+    articleNLPfiles = os.path.join(cacheDir, "ArticleTable-nlp.json")
+    ExcelWriteAction().run(config, articleNLPfiles)
 
 
 ytConfigs = cm.buildYoutubeActionConfigs()
