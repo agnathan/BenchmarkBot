@@ -49,7 +49,7 @@ cd BenchmarkBot
 ```bash
 python -m venv benchmarkbot
 benchmarkbot/Scripts/activate   # Windows
-benchmarkbot/bub/activate   # Linux or MacOS
+source benchmarkbot/bub/activate   # Linux or MacOS
 pip install -r requirements.txt
 ```
 
