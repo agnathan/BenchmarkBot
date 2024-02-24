@@ -1,0 +1,98 @@
+outputfile: ./interview-questions.xlsx
+sources:
+  - url: "https://www.notebookcheck.net/Intel-Meteor-Lake-Analysis-Core-Ultra-7-155H-only-convinces-with-GPU-performance.783320.0.html"
+    sheet: "NotebookCheck"
+    pipeline: "ArticleTables"
+  - url: https://www.youtube.com/watch?v=WH-qtuVRS2c
+    sheet: "Dave2D"
+    pipeline: "Youtube"
+    timeindexes:
+      - 133
+      - 151
+      - 218
+  - url: https://www.youtube.com/watch?v=Obtc24lwbrw
+    sheet: "Hardware Canucks"
+    pipeline: "Youtube"
+    timeindexes:
+      - 76
+      - 11
+      - 14
+      - 121
+      - 606
+      - 610
+      - 614
+      - 619
+      - 624
+      - 629
+      - 633
+      - 638
+      - 643
+      - 647
+      - 663
+      - 772
+      - 800
+      - 808
+  - url: https://www.youtube.com/watch?v=7wZjhlYqZ2I
+    sheet: "just josh"
+    pipeline: "Youtube"
+    timeindexes:
+      - 410
+      - 435
+      - 483
+      - 508
+      - 555
+      - 585
+      - 597
+      - 605
+      - 616
+      - 642
+  - url: https://www.youtube.com/watch?v=Dio25xA6pwE
+    sheet: "Matthew Moniz"
+    pipeline: "Youtube"
+    timeindexes:
+      - 120
+      - 126
+      - 136
+      - 145
+      - 161
+      - 219
+      - 253
+      - 267
+      - 276
+  - url: https://www.pcworld.com/article/2171363/acer-swift-go-14-review-3.html
+    sheet: "PCWorld"
+    pipeline: "ArticleImages"
+  # - url: https://www.computerbase.de/2023-12/intel-meteor-lake-core-ultra-7-155h-test/
+  #   sheet: "computer base"
+  #   pipeline: "ComputerBase"
+# Named Entities are used in the NLP pipeline (Natural Language Processing)
+NamedEntities:
+  CPU:
+    - Intel Core i7-1370P
+    - Apple M3 Pro 12-Core
+    - Intel Core i7-13700H
+    - Intel Core Ultra 7 155H
+    - AMD Ryzen 7 7840S
+    - AMD Ryzen 7 7840U
+    - AMD Ryzen 9 PRO 7940HS
+    - AMD Ryzen 7 6800U
+    - Qualcomm Snapdragon X Elite
+  Benchmarks:
+    - DaVinci Resolve 18
+    - Cinebench R23 - Multi-core
+    - Cinebench R24 - Single Core
+    - Geekbench 6.2 - Multi-core
+    - Geekbench 6.2 - Single-core
+    - UL Procyon AI (Integer)
+    - PCMark 10 - Applications
+    - 3DMark - Wild Life Extreme
+    - GFXBench - Aztech Ruins
+    - GIMP Photo Editing
+  Products:
+    - Zenbook 13 S OLED
+    - Lenovo Slim 7i
+    - Lenovo Yoga Slim 7
+    - Zenbook 14X
+    - ASUS Zenbook 14
+    - Acer Swift Edge 16
+
